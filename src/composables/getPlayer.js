@@ -14,9 +14,26 @@ const getPlayer = (id) => {
           throw Error('no data available')
         }
         player.value = await data.json()
+
         if (player.value.primaryPosition === "P") {
             position.value = "Pitcher"
-        } else position.value = player.value.primaryPosition
+        } else if (player.value.primaryPosition === "C") {
+            position.value = "Catcher"
+        } else if (player.value.primaryPosition === "1B") {
+            position.value = "First Base"
+        } else if (player.value.primaryPosition === "2B") {
+            position.value = "Second Base"
+        } else if (player.value.primaryPosition === "SS") {
+            position.value = "Shortstop"
+        } else if (player.value.primaryPosition === "3B") {
+            position.value = "Third Base"
+        } else if (player.value.primaryPosition === "LF") {
+            position.value = "Left Field"
+        } else if (player.value.primaryPosition === "CF") {
+            position.value = "Center Field"
+        } else if (player.value.primaryPosition === "RF") {
+            position.value = "Right Field"
+        } 
 
         if (player.value.batSide === "R") {
             bats.value = "Right"
