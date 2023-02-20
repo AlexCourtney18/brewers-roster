@@ -1,12 +1,12 @@
 import { ref } from 'vue'
 
-const getPlayer = () => {
+const getPlayer = (id) => {
     const player = ref([])
     const error = ref(null)
 
     const load = async () => {
       try {
-        let data = await fetch('http://localhost:3000/players' + id)
+        let data = await fetch('http://localhost:3000/players/' + id)
         if (!data.ok) {
           throw Error('no data available')
         }
