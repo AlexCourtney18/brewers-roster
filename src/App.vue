@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: #eee;
 }
 
 nav {
@@ -21,10 +22,17 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffe156;
+  background: #3777FF;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+button {
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
 }
 </style>

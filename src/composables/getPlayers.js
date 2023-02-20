@@ -11,7 +11,6 @@ const getPlayers = () => {
           throw Error('no data available')
         }
         players.value = await data.json()
-        console.log(players)
       }
       catch (err) {
         error.value = err.message
