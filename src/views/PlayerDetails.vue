@@ -35,10 +35,13 @@ export default {
 
 <style>
 p,
+h1,
+h2,
 h3,
 ul {
   margin: 0;
   padding: 0;
+  
 }
 li {
   list-style-type: none;
