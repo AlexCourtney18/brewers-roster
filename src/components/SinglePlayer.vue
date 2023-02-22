@@ -1,7 +1,9 @@
 <template>
   <div class="player">
-    <router-link :to="{ name: 'Details', params: { id: player.id }}">
+    <router-link style="text-decoration: none;" :to="{ name: 'Details', params: { id: player.id }}" >
+      <div class="playerName">
         <h3>{{ player.firstName }} {{player.lastName }}</h3>
+      </div>
     </router-link>
     
     <img :src="player.picture" alt="brewers player" @click="handleClick">

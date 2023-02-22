@@ -30,6 +30,21 @@ nav a, button {
   cursor: pointer;
 }
 
+.playerName {
+  font-weight: bold;
+  color: #ffe156;
+  background: #3777FF;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  max-width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 button {
   margin: 0 10px;
   padding: 10px;

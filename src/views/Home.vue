@@ -27,9 +27,7 @@ export default {
   setup() {
     const { players, error, load } = getPlayers();
     
-
     load();
-
 
     const positions= ref(["All", "P", "C", "1B", "2B", "SS", "3B", "LF", "CF", "RF"])
     const activeFilter = ref('All')
