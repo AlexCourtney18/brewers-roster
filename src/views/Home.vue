@@ -1,6 +1,14 @@
 <template>
   <div class="home">
     <h1>Milwaukee Brewers 2022 Roster</h1>
+    <br/>
+    <div>
+      <h2>Search By Position:</h2>
+      <button v-for="position in positions" :key="position.id" @click="handleClick" ref="p">
+        {{ position.id }}
+      </button>
+    </div>
+    <br/>
     <div v-if="players.length">
       <PlayerList :players="players" />
     </div>
@@ -9,19 +17,30 @@
 </template>
 
 <script>
-import PlayerList from '../components/PlayerList.vue'
-import getPlayers from '../composables/getPlayers'
+import { ref } from 'vue';
+import PlayerList from "../components/PlayerList.vue";
+import getPlayers from "../composables/getPlayers";
 
 export default {
-  name: 'Home',
-  components: { PlayerList },
-  setup () {
-    const { players, error, load } = getPlayers()
-
-    load()
-
-
-    return { players, error}
+  data() {
+    return {
+      positions: [{ id: "P" }, { id: "C" }, { id: "1B" }, { id: "2B" }, { id: "SS" }, { id: "3B" }, { id: "LF" }, { id: "CF" }, { id: "RF" },],
+    };
   },
-}
+  name: "Home",
+  components: { PlayerList },
+  setup() {
+    const { players, error, load } = getPlayers();
+
+    load();
+
+    const p = ref(null)
+
+    const handleClick = () => {
+      console.log(p.value)
+    }
+
+    return { players, error, handleClick, p };
+  },
+};
 </script>

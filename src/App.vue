@@ -20,13 +20,14 @@ nav {
   padding: 30px;
 }
 
-nav a {
+nav a, button {
   font-weight: bold;
   color: #ffe156;
   background: #3777FF;
   text-decoration: none;
   padding: 10px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 button {
