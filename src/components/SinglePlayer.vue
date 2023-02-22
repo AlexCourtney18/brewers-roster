@@ -1,7 +1,7 @@
 <template>
   <div class="player">
     <router-link style="text-decoration: none;" :to="{ name: 'Details', params: { id: player.id }}" >
-      <div class="playerName">
+      <div class="playerName" style="max-width: 25%">
         <h3>{{ player.firstName }} {{player.lastName }}</h3>
       </div>
     </router-link>
