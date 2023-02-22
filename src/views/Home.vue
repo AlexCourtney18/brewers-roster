@@ -4,7 +4,7 @@
     <br/>
     <div>
       <h2>Search By Position:</h2>
-      <button v-for="position in positions" :key="position.id" @click="handleClick" ref="p">
+      <button v-for="position in positions" :key="position.id" @click="handleClick($event)" ref="p">
         {{ position.id }}
       </button>
     </div>
@@ -22,11 +22,11 @@ import PlayerList from "../components/PlayerList.vue";
 import getPlayers from "../composables/getPlayers";
 
 export default {
-  data() {
-    return {
-      positions: [{ id: "P" }, { id: "C" }, { id: "1B" }, { id: "2B" }, { id: "SS" }, { id: "3B" }, { id: "LF" }, { id: "CF" }, { id: "RF" },],
-    };
-  },
+  // data() {
+  //   return {
+  //     positions: [{ id: "P" }, { id: "C" }, { id: "1B" }, { id: "2B" }, { id: "SS" }, { id: "3B" }, { id: "LF" }, { id: "CF" }, { id: "RF" },],
+  //   };
+  // },
   name: "Home",
   components: { PlayerList },
   setup() {
@@ -36,11 +36,15 @@ export default {
 
     const p = ref(null)
 
-    const handleClick = () => {
-      console.log(p.value)
+    let positions= [{ id: "P" }, { id: "C" }, { id: "1B" }, { id: "2B" }, { id: "SS" }, { id: "3B" }, { id: "LF" }, { id: "CF" }, { id: "RF" },]
+
+    const handleClick = (e) => {
+      
+      const buttonValue = e.target.innerHTML
+      console.log(buttonValue)
     }
 
-    return { players, error, handleClick, p };
+    return { players, error, handleClick, positions, p };
   },
 };
 </script>
