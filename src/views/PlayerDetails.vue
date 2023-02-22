@@ -41,7 +41,8 @@ h3,
 ul {
   margin: 0;
   padding: 0;
-  
+  text-align: center;
+  align-items: center;
 }
 li {
   list-style-type: none;
@@ -50,11 +51,11 @@ li {
   margin: 10px auto;
   padding: 10px 10px;
   border-radius: 10px;
-  display: flex;
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  max-width: 100%;
+  max-width: 33%;
+  
 }
 
 </style>
