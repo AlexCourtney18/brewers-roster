@@ -36,4 +36,8 @@ button {
   border: none;
   border-radius: 4px;
 }
+.active {
+  background: #ffe156;
+  color: #3777FF;
+}
 </style>
