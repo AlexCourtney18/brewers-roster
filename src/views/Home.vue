@@ -3,9 +3,9 @@
     <h1>Milwaukee Brewers 2022 Roster</h1>
     <br/>
     <div>
-      <h2>Search By Position:</h2>
-      <button v-for="position in positions" :key="position.id" @click="handleClick($event)" ref="p">
-        {{ position.id }}
+      <h2>Filter By Position:</h2>
+      <button v-for="position in positions" :key="position" @click="filterPosition($event)">
+        {{ position }}
       </button>
     </div>
     <br/>
@@ -17,34 +17,46 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import PlayerList from "../components/PlayerList.vue";
 import getPlayers from "../composables/getPlayers";
 
 export default {
-  // data() {
-  //   return {
-  //     positions: [{ id: "P" }, { id: "C" }, { id: "1B" }, { id: "2B" }, { id: "SS" }, { id: "3B" }, { id: "LF" }, { id: "CF" }, { id: "RF" },],
-  //   };
-  // },
   name: "Home",
   components: { PlayerList },
   setup() {
     const { players, error, load } = getPlayers();
+    
 
     load();
 
-    const p = ref(null)
+    const displayedPlayers = ref(players.value)
+    //console.log(displayedPlayers.value)
 
-    let positions= [{ id: "P" }, { id: "C" }, { id: "1B" }, { id: "2B" }, { id: "SS" }, { id: "3B" }, { id: "LF" }, { id: "CF" }, { id: "RF" },]
 
-    const handleClick = (e) => {
-      
-      const buttonValue = e.target.innerHTML
-      console.log(buttonValue)
-    }
+    const positions= ref(["P", "C", "1B", "2B", "SS", "3B", "LF", "CF", "RF"])
+    const activeFilter = ref('All')
+    // console.log(activeFilter.value, 'activeFilter ON LOAD')
 
-    return { players, error, handleClick, positions, p };
+    const filterPosition = (e) => {
+      activeFilter.value = e.target.innerHTML;
+      console.log(activeFilter.value, 'activeFilter')
+      console.log(players.value)
+
+      const getPositions = computed(() => {
+       if (activeFilter.value === 'All') {
+         return players
+       }
+       return players.value.filter((player) => player.primaryPosition === activeFilter.value);
+     });
+
+      console.log(getPositions.value)
+      return getPositions
+
+    } 
+
+
+    return { players, error, positions, activeFilter, filterPosition };
   },
 };
 </script>
