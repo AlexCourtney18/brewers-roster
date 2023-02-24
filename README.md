@@ -1,7 +1,7 @@
 # Brewers-Roster
 
 ## Description
-This tool displays the Milwaukee Brewers roster and allows the user to view additional information about each player. The user can filter players by their position by clicking on the position buttons near the top of the page. The site is styled to be responsive on all screen sizes. 
+This tool displays the Milwaukee Brewers roster and allows the user to view additional information about each player. The user can filter players by their position by clicking on the position buttons near the top of the page. The site is styled to be responsive on all screen sizes. The site was built using Vue 3 for the front end. The data is handled using the json-server npm package to mimic the functionality of a server based API while using local data.
 
 The site takes the abreviated data and converts it back to the full word for ease of use. For instance, the pitcher position is abbreviated as "P" in the data file. The site will look for that abbreviation and instead render the full word on the page.
 ## Installation
@@ -12,7 +12,7 @@ npm install
 *Note - it is important to confirm you are in the root of the application before using the npm install command to ensure all dependencies are installed correctly. The website functions in your local web browser.
 
 ## Usage
-Once the application is installed, open the project in your preferred code editor. To start the application, run the following commands in two separate terminals.
+Once the application is installed, open the project in your preferred code editor. To start the application, run the following commands **in two separate terminals**.
 ```
 npm run serve
 ```
